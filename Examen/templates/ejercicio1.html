@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio1</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/estiloejercicio1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculo de compras</h1>
+        <form action="/ejercicio1" method="POST">
+            <label for="Nombre">Ingresa tu Nombre:</label>
+            <input type="text" id="Nombre" name="Nombre" required><br>
+            <label for="Edad">Ingresa tu Edad:</label>
+            <input type="number" id="Edad" name="Edad" min=" 1" max="100" required><br>
+            <label for="Tarros">Ingresa la cantidad de Tarros a comprar</label>
+            <input type="number" id="Tarros" name="Tarros" min="1" required><br>
+            <button type="submit"> calcular </button>
+        </form>
+        {% if Edad is defined %}
+            {% if Edad >= 18 and Edad <= 30 %}
+                <p>
+                    Nombre del cliente: {{Nombre}}<br>
+                    Total sin descuento: ${{Tarro}}<br>
+                    Descuento: ${{descuento1}}<br>
+                    Total a pagar: ${{total1}}
+                </p>
+            {% elif Edad > 30 %}
+                <p>
+                    Nombre del cliente: {{Nombre}}<br>
+                    Total sin descuento: ${{Tarro}}<br>
+                    Descuento: ${{descuento2}}<br>
+                    Total a pagar: ${{total2}}
+                </p>
+            {% else %}
+                <p>
+                    Nombre del cliente: {{Nombre}}<br>
+                    Total sin descuento: ${{Tarro}}<br>
+                    Sin descuento<br>
+                    Total a pagar: ${{Tarro}}
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
